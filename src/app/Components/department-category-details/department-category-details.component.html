@@ -1,0 +1,40 @@
+<div>
+  <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title class="title">Department category Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <span class="sub-title">En.Name</span>
+          <mat-form-field class="example-full-width">
+              <input matInput 
+               [(ngModel)]="selectedDepartmentCategory.enName"
+               [name]="selectedDepartmentCategory.enName">
+            </mat-form-field>
+          
+            <span class="sub-title">Ar.Name</span>
+            <mat-form-field class="example-full-width">
+              <input matInput 
+              [(ngModel)]="selectedDepartmentCategory.arName"
+              [name]="selectedDepartmentCategory.arName" >
+            </mat-form-field>
+
+            <span class="sub-title">Code</span>
+            <mat-form-field class="example-full-width">
+                <input matInput 
+                [(ngModel)]="selectedDepartmentCategory.code"
+                [name]="selectedDepartmentCategory.code" >
+              </mat-form-field>
+
+              <span class="sub-title">Departments</span>
+              <mat-list role="list">
+                <mat-list-item  *ngFor="let item of selectedDepartmentCategory.departments"
+                role="listitem">
+                {{item.enName}}
+              </mat-list-item>
+              </mat-list>
+              
+      </mat-card-content>
+    </mat-card>
+  </div>
+    

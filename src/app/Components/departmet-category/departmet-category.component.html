@@ -1,0 +1,50 @@
+ <div>
+ <label class="title"> Department Category</label>
+ <button mat-button 
+  routerLink="/DepartmentCategoryEditor/Add">
+   <mat-icon color="primary">
+     add
+    </mat-icon>
+  </button>   
+</div>
+<table mat-table [dataSource]="departmentsCategories" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="EnName">
+    <th mat-header-cell *matHeaderCellDef> En.Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.enName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ArName">
+    <th mat-header-cell *matHeaderCellDef> Ar.Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.arName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Code">
+    <th mat-header-cell *matHeaderCellDef> Code </th>
+    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Edit">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element" > 
+        <button mat-button 
+        routerLink="/DepartmentCategoryEditor/Edit" 
+        [queryParams]="{id:element.id}">
+            <mat-icon color="primary">create</mat-icon> 
+         </button>
+        <button mat-button 
+        (click)="onDelete(element)">
+           <mat-icon color="primary">delete</mat-icon> 
+        </button>  
+      <button mat-button
+      [routerLink]="['/DepartmentCategoryDetails',element.id]"
+      >
+            <mat-icon color="primary">loupe</mat-icon> 
+         </button> 
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
